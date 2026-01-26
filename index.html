@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test GitHub Pages</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        button {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .btn-primary { background: #ff6b6b; color: white; }
+        .btn-primary:hover { background: #ff5252; transform: translateY(-2px); }
+        .btn-secondary { background: #4ecdc4; color: white; }
+        .btn-secondary:hover { background: #45b7aa; transform: translateY(-2px); }
+        .btn-success { background: #45b7aa; color: white; }
+        .btn-success:hover { background: #3da89a; transform: translateY(-2px); }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 90%;
+            max-height: 80%;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+        }
+        .close:hover { color: #333; }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .demo-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        .demo-section h3 { margin-top: 0; color: #667eea; }
+        ul { padding-left: 1.5rem; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Test GitHub Pages</h1>
+    <p style="text-align: center; color: white; font-size: 1.1rem;">Clique sur les boutons pour ouvrir des modales interactives ! Parfait pour tester le déploiement.</p>
+    
+    <div class="container">
+        <button class="btn-primary" onclick="openModal('modal1')">🎨 Aperçu CSS</button>
+        <button class="btn-secondary" onclick="openModal('modal2')">📱 Responsive</button>
+        <button class="btn-success" onclick="openModal('modal3')">⚡ Animations</button>
+        <button class="btn-primary" onclick="openModal('modal4')">💾 Infos Déploiement</button>
+    </div>
+
+    <!-- Modal 1: CSS Demo -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>🎨 Démo CSS Gradient</h2>
+            <div class="demo-section" style="background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e); background-size: 400% 400%; animation: gradientShift 3s ease infinite;">
+                <h3>Animation de dégradé</h3>
+                <p>Ceci est une animation CSS pure. Pas de JS nécessaire !</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Responsive -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h2>📱 Test Responsive</h2>
+            <div class="demo-section">
+                <h3>Grille flexible</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <div style="background: #ff6b6b; padding: 1rem; border-radius: 8px; color: white;">Élément 1</div>
+                    <div style="background: #4ecdc4; padding: 1rem; border-radius: 8px; color: white;">Élément 2</div>
+                    <div style="background: #45b7aa; padding: 1rem; border-radius: 8px; color: white;">Élément 3</div>
+                    <div style="background: #667eea; padding: 1rem; border-radius: 8px; color: white;">Élément 4</div>
+                </div>
+                <p>Adapte-toi à la taille de l'écran !</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Animations -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h2>⚡ Animations CSS</h2>
+            <div class="demo-section">
+                <h3>Bouton qui rebondit</h3>
+                <button style="padding: 1rem 2rem; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; animation: bounce 2s infinite;" onclick="this.style.animation='none';">Clique-moi !</button>
+                <style>
+                    @keyframes bounce {
+                        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                        40% { transform: translateY(-10px); }
+                        60% { transform: translateY(-5px); }
+                    }
+                    @keyframes gradientShift {
+                        0% { background-position: 0% 50%; }
+                        50% { background-position: 100% 50%; }
+                        100% { background-position: 0% 50%; }
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: GitHub Pages -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <h2>💾 Guide GitHub Pages</h2>
+            <div class="demo-section">
+                <h3>Étapes rapides</h3>
+                <ol>
+                    <li>Crée un repo GitHub nommé <code>tonusername.github.io</code></li>
+                    <li>Push ce fichier <code>index.html</code> dans la branche <code>main</code></li>
+                    <li>Attends 2-5 min</li>
+                    <li>Visite <code>https://tonusername.github.io</code> ✅</li>
+                </ol>
+                <p>Parfait pour tes démos HTML/CSS ! [memory:1][conversation_history:4]</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        // Fermer au clic extérieur
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
