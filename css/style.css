@@ -1,0 +1,209 @@
+/* =========================
+    LAYOUT GLOBAL
+   ========================= */
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #1b2045;
+    margin: 0;
+    padding: 20px;
+    color: #333333;
+}
+
+
+/* =========================
+    COLONNE GAUCHE : GUIDE (ROUGE)
+   ========================= */
+
+.container-guide {
+    flex: 1.6; /* Plus large comme demandé */
+    background-color: #FFFFFF;
+    color: #333333;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(46, 117, 182, 0.2);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.guide-title {
+    color: #1F4E79;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#explication {
+    font-style: italic;
+    color: #555;
+    background: #F9FBFF;
+    padding: 15px;
+    border-left: 4px solid #2E75B6;
+    margin-bottom: 20px;
+}
+
+/* Cartes horizontales dans le guide */
+.options-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.option-card {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center; 
+    transition: all 0.3s ease;
+}
+
+.option-card:hover {
+    border-color: #2E75B6;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(46, 117, 182, 0.15);
+}
+
+.option-card strong[id="etape"] {
+    color: #1F4E79;
+}
+
+#lien_video_tuto{
+    text-align: center;
+}
+
+/* =========================
+    COLONNE DROITE : GÉNÉRATEUR
+   ========================= */
+
+
+
+/* BLOC VOS INFORMATIONS (VIOLET) */
+.form-side {
+    width: 100%;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(46, 117, 182, 0.15);
+    box-sizing: border-box;
+}
+
+#titre {
+    text-align: center;
+    margin-top: 0;
+    color: #1b2045;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #1F4E79;
+    text-align: left;
+}
+
+input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #CCD6E0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Bouton de téléchargement large */
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #2E75B6;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #1F4E79;
+}
+
+/* BLOC APERÇU (VERT) */
+.preview-side {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#signature-wrap {
+    background: #FFFFFF;
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+    LAYOUT PRINCIPAL (Ajusté)
+   ========================= */
+
+.main-wrapper {
+    display: flex;
+    flex-direction: row;
+    /* On change flex-start par center pour aligner le bloc de droite au milieu du guide */
+    align-items: center; 
+    justify-content: center;
+    gap: 40px; /* Un peu plus d'espace entre les deux pour l'équilibre */
+    max-width: 1450px;
+    margin: 40px auto; /* Ajout de marge en haut/bas pour décoller du bord du navigateur */
+}
+
+/* =========================
+    COLONNE DROITE : GÉNÉRATEUR
+   ========================= */
+
+.container {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* Suppression du position: sticky car le centrage vertical 
+       est incompatible avec le sticky sur le parent */
+}
+
+/* On s'assure que le titre Aperçu reste bien visible */
+#visu {
+    margin-top: 0;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+/* =========================
+    RESPONSIVE
+   ========================= */
+
+@media (max-width: 1150px) {
+    .main-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-guide, .container {
+        width: 100%;
+        max-width: 900px;
+    }
+}
